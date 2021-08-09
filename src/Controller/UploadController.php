@@ -13,7 +13,6 @@ use Psr\Log\LoggerInterface;
 
 
 class UploadController extends AbstractController {
-
     /**
      * @Route("/upload", name="upload")
      */
@@ -21,12 +20,6 @@ class UploadController extends AbstractController {
         return $this->render('upload/index.html.twig');
     }
 
-    /**
-     * @Route("/download", name="download")
-     */
-    public function download(): Response {
-        
-    }
 
     /**
      * @Route("/do-upload", name="do-upload")
@@ -70,7 +63,7 @@ class UploadController extends AbstractController {
             'message' => "File uploaded", 
             'content-type' => 'text/plain',
             'file' => $uploadDir . "/" . $filename,
-            'link' => '<a href="' . $uploadDir . "/" . $filename . '">dl</a>'
+            // 'link' => '<a href="' . $uploadDir . "/" . $filename . '">dl</a>'
         ]);
     }
 }

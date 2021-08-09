@@ -1,0 +1,8 @@
+   {# <a href="{{ asset('uploads/' ~ product.picture) }}" onclick="window.open(this.href); return false;">{{ product.picture }}</a></td>   #}
+    
+    {% if filename is defined %} 
+        <div> {{ filename }} </div>
+        <a href="{{ asset('upload/' ~  filename ) }}" onclick="window.open(this.href); return false;">{{ filename }}</a>
+        {# <a href="{{ asset('upload/' . {{filename}} ) }}">Download</a> #}
+
+    {% endif %} 

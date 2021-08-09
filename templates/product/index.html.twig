@@ -29,11 +29,12 @@
                 <td>{{ product.advice }}</td>
                 <td>{{ product.purchaseDate ? product.purchaseDate|date('Y-m-d') : '' }}</td>
                 <td>{{ product.warrantyEndDate ? product.warrantyEndDate|date('Y-m-d') : '' }}</td>
-                <td>{{ product.manual ? product.manual : '' }}</td>
+
+                {% if product.manual is defined %}
+                    <td><a href="{{ asset('upload/' ~  product.manual ) }}" onclick="window.open(this.href); return false;">{{ product.manual }}</a></td>
+                {% endif %}
                 
-                {# <td>{{ include('upload/index.html.twig') }}</td> #}
                 <td>
-                    <a href="">manual</a>
                     <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
                     <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
                 </td>
