@@ -9,7 +9,8 @@
         <div> {{ message }} </div>
     {% endif %}    
 
-  <form action="{{ path('do-upload') }}" method="post" enctype="multipart/form-data">
+    {{ include('upload/_upload.html.twig') }}
+  {# <form action="{{ path('do-upload') }}" method="post" enctype="multipart/form-data">
 
         <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
 
@@ -20,13 +21,17 @@
 
         <button type="submit">Send</button>
 
-  </form>
+  </form> #}
 
-    {% if filename is defined %} 
-        <div> {{ filename }} </div>
-        <div> {{ uploaddir }} </div>
+    {% if file is defined %} 
+        <div> {{ file }} </div>
+        <a href="{{ file }}">Download</a>
+        {# <a href="({{ path('{{file}}') }})">Download</a> #}
+    {% endif %} 
 
-
+    {% if link is defined %} 
+        <div> {{ link }} </div>
+        <a href="{{ link }}">Download</a>
     {% endif %} 
 
 

@@ -20,6 +20,7 @@ class ProductType extends AbstractType
             ->add('warranty_end_date')
             ->add('manual')
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

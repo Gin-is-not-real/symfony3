@@ -8,16 +8,18 @@ use Psr\Log\LoggerInterface;
 class FileUploader
 {
     private $logger;
+    private $uploadDir;
 
-    public function __construct(LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger, string $uploadDir)
     {
         $this->logger = $logger;
+        $this->uploadDir = $uploadDir;
     }
 
-    public function upload($uploadDir, $file, $filename)
+    public function upload($file, $filename)
     {
         try {
-            $file->move($uploadDir, $filename);
+            $file->move($this->uploadDir, $filename);
             
         } catch (FileException $e){
 

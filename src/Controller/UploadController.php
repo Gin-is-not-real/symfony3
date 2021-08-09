@@ -13,19 +13,19 @@ use Psr\Log\LoggerInterface;
 
 
 class UploadController extends AbstractController {
-    /**
-     * @Route(/"download/{filename}", name="download")
-     */
-    // public function download(string $uploadDir, $filename) {
-    //     $request = $this->get('request');
-    //     $path = $this->get('kernel')->getRootDir() . $uploadDir . "/";
-    // }
 
     /**
      * @Route("/upload", name="upload")
      */
     public function toUploadPage(): Response {
         return $this->render('upload/index.html.twig');
+    }
+
+    /**
+     * @Route("/download", name="download")
+     */
+    public function download(): Response {
+        
     }
 
     /**
@@ -47,8 +47,6 @@ class UploadController extends AbstractController {
         {
             $logger->info("CSRF failure");
 
-            // return new Response("Operation not allowed",  Response::HTTP_BAD_REQUEST,
-            //     ['content-type' => 'text/plain']);
             return $this->render('upload/index.html.twig', [
                 'message' => "Operation not allowed", 
                 'content-type' => 'text/plain'
@@ -59,9 +57,6 @@ class UploadController extends AbstractController {
 
         if (empty($file))
         {
-            // return new Response("No file specified",
-            //    Response::HTTP_UNPROCESSABLE_ENTITY, ['content-type' => 'text/plain']);
-
             return $this->render('upload/index.html.twig', [
                 'message' => "No file specified", 
                 'content-type' => 'text/plain'
@@ -69,17 +64,13 @@ class UploadController extends AbstractController {
         }
 
         $filename = $file->getClientOriginalName();
-        $uploader->upload($uploadDir, $file, $filename);
-
-        // return new Response("File uploaded",  Response::HTTP_OK,
-        //     ['content-type' => 'text/plain']);
+        $uploader->upload($file, $filename);
 
         return $this->render('upload/index.html.twig', [
             'message' => "File uploaded", 
             'content-type' => 'text/plain',
-            'filename' => $filename,
-            'uploaddir' => $uploadDir,
-            'file' => $uploadDir . "/" . $filename
+            'file' => $uploadDir . "/" . $filename,
+            'link' => '<a href="' . $uploadDir . "/" . $filename . '">dl</a>'
         ]);
     }
 }
