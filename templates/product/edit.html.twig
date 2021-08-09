@@ -7,6 +7,11 @@
 
     {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
 
+            {# // ->add('manual')
+            // -> add('uploader_un_autre_fichier', FileType::class, [
+            //     'mapped' => false
+            // ])  #}
+    <br>
     <a href="{{ path('product_index') }}">back to list</a>
 
     {{ include('product/_delete_form.html.twig') }}

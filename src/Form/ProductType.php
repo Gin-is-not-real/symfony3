@@ -6,6 +6,7 @@ use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProductType extends AbstractType
 {
@@ -19,6 +20,9 @@ class ProductType extends AbstractType
             ->add('purchase_date')
             ->add('warranty_end_date')
             ->add('manual')
+            // -> add('uploader_un_autre_fichier', FileType::class, [
+            //     'mapped' => false
+            // ]) 
         ;
 
     }

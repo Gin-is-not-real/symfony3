@@ -37,7 +37,9 @@
             </tr>
             <tr>
                 <th>Manual</th>
-                <td>{{ product.manual }}</td>
+                {% if product.manual is defined %}
+                    <td><a href="{{ asset('upload/' ~  product.manual ) }}" onclick="window.open(this.href); return false;">{{ product.manual }}</a></td>
+                {% endif %}
             </tr>
         </tbody>
     </table>

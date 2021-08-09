@@ -20,7 +20,6 @@ class UploadController extends AbstractController {
         return $this->render('upload/index.html.twig');
     }
 
-
     /**
      * @Route("/do-upload", name="do-upload")
      * @param Request $request
@@ -63,7 +62,6 @@ class UploadController extends AbstractController {
             'message' => "File uploaded", 
             'content-type' => 'text/plain',
             'file' => $uploadDir . "/" . $filename,
-            // 'link' => '<a href="' . $uploadDir . "/" . $filename . '">dl</a>'
         ]);
     }
 }
