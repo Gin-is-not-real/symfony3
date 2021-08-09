@@ -27,6 +27,18 @@
                 <th>Advice</th>
                 <td>{{ product.advice }}</td>
             </tr>
+            <tr>
+                <th>Purchase_date</th>
+                <td>{{ product.purchaseDate ? product.purchaseDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Warranty_end_date</th>
+                <td>{{ product.warrantyEndDate ? product.warrantyEndDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Manual</th>
+                <td>{{ product.manual }}</td>
+            </tr>
         </tbody>
     </table>
 

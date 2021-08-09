@@ -13,6 +13,9 @@
                 <th>Ref</th>
                 <th>Price</th>
                 <th>Advice</th>
+                <th>Purchase_date</th>
+                <th>Warranty_en_date</th>
+                <th>Manual</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,6 +27,9 @@
                 <td>{{ product.ref }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.advice }}</td>
+                <td>{{ product.purchaseDate ? product.purchaseDate|date('Y-m-d') : '' }}</td>
+                <td>{{ product.warrantyEndDate ? product.warrantyEndDate|date('Y-m-d') : '' }}</td>
+                <td>{{ product.manual }}</td>
                 <td>
                     <a href="{{ path('product_show', {'id': product.id}) }}">show</a>
                     <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
@@ -31,7 +37,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

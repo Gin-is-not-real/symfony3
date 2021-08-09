@@ -14,11 +14,11 @@
     <div><a href="{{ path('app_login') }}">login</a></div>
     <div><a href="{{ path('app_register') }}">register</a></div>
 
-
+    {% block test %}{% endblock %}
     {# {{ render(controller(
-        'App\\Controller\\SecurityController::login'
-    )) }}
-
+        'App\\Controller\\SecurityController:login'
+    )) }} #}
+{# 
     {{ render(controller(
         'App\\Controller\\RegistrationController::register'
     )) }} #}

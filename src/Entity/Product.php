@@ -37,6 +37,21 @@ class Product
      */
     private $advice;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $purchase_date;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $warranty_end_date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $manual;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +101,42 @@ class Product
     public function setAdvice(string $advice): self
     {
         $this->advice = $advice;
+
+        return $this;
+    }
+
+    public function getPurchaseDate(): ?\DateTimeInterface
+    {
+        return $this->purchase_date;
+    }
+
+    public function setPurchaseDate(\DateTimeInterface $purchase_date): self
+    {
+        $this->purchase_date = $purchase_date;
+
+        return $this;
+    }
+
+    public function getWarrantyEndDate(): ?\DateTimeInterface
+    {
+        return $this->warranty_end_date;
+    }
+
+    public function setWarrantyEndDate(\DateTimeInterface $warranty_end_date): self
+    {
+        $this->warranty_end_date = $warranty_end_date;
+
+        return $this;
+    }
+
+    public function getManual(): ?string
+    {
+        return $this->manual;
+    }
+
+    public function setManual(?string $manual): self
+    {
+        $this->manual = $manual;
 
         return $this;
     }

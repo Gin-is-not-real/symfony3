@@ -16,6 +16,9 @@ class ProductType extends AbstractType
             ->add('ref')
             ->add('price')
             ->add('advice')
+            ->add('purchase_date')
+            ->add('warranty_end_date')
+            ->add('manual')
         ;
     }
 

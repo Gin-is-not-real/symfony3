@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UploadController!{% endblock %}
+
+{% block body %}
+    <div><a href="{{ path('product_index') }}">Retour</a></div>
+    
+    {% if message is defined %} 
+        <div> {{ message }} </div>
+    {% endif %}    
+
+  <form action="{{ path('do-upload') }}" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="token" value="{{ csrf_token('upload') }}" />
+
+        <div>
+            <label for="myfile">File to upload:</label>
+            <input type="file" name="myfile" id="myfile">
+        </div>
+
+        <button type="submit">Send</button>
+
+  </form>
+
+    {% if filename is defined %} 
+        <div> {{ filename }} </div>
+        <div> {{ uploaddir }} </div>
+
+
+    {% endif %} 
+
+
+{% endblock %}
